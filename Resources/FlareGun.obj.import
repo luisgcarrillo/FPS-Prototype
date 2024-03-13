@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bijxkivc5i176"
+path="res://.godot/imported/FlareGun.obj-0f368039aba7a75963bb527c08af100b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FlareGun.obj-0f368039aba7a75963bb527c08af100b.mesh"]
+
+source_file="res://Resources/FlareGun.obj"
+dest_files=["res://.godot/imported/FlareGun.obj-0f368039aba7a75963bb527c08af100b.mesh", "res://.godot/imported/FlareGun.obj-0f368039aba7a75963bb527c08af100b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

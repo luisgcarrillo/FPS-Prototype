@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://d4npc162qfj0"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_cbehd"]
+[ext_resource type="Texture2D" uid="uid://kpgfe0o3bw45" path="res://Assets/monster_sprites.png" id="2_nddof"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iqqpu"]
+size = Vector3(1, 1.4, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blk8w"]
+atlas = ExtResource("2_nddof")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io3w7"]
+atlas = ExtResource("2_nddof")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyy81"]
+atlas = ExtResource("2_nddof")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qip8b"]
+atlas = ExtResource("2_nddof")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1x5c"]
+atlas = ExtResource("2_nddof")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo0tp"]
+atlas = ExtResource("2_nddof")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35p0g"]
+atlas = ExtResource("2_nddof")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4cqd"]
+atlas = ExtResource("2_nddof")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiutk"]
+atlas = ExtResource("2_nddof")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ss53b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blk8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io3w7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyy81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qip8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1x5c")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo0tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35p0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4cqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiutk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4jn6"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvrwf"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("1_cbehd")
+health = 10
+speed = 11.0
+knockbackStrength = 25.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.231222, 0)
+shape = SubResource("BoxShape3D_iqqpu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.855488, 0, 0, 0, 0.867898, 0, 0, 0, 1, 0, 0.130824, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_ss53b")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+max_speed = 50.0
+use_3d_avoidance = true
+
+[node name="ColorChangeTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DeadCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.559462, 0)
+shape = SubResource("BoxShape3D_l4jn6")
+disabled = true
+
+[node name="HeadshotCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.670705, 0)
+shape = SubResource("BoxShape3D_cvrwf")
+
+[connection signal="timeout" from="ColorChangeTimer" to="." method="_on_color_change_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc6p42amfn0r5"]
+
+[ext_resource type="Script" path="res://Scripts/decal.gd" id="1_o381j"]
+[ext_resource type="Texture2D" uid="uid://dw8g3hexeciv" path="res://Assets/bullet_hole.png" id="2_r8x6b"]
+
+[node name="decal" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_o381j")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+size = Vector3(0.2, 0.2, 0.2)
+texture_albedo = ExtResource("2_r8x6b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

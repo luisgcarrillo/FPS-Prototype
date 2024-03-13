@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WeaponsResource" load_steps=2 format=3 uid="uid://fqaf734kpsl6"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponsResource.gd" id="1_ji26v"]
+
+[resource]
+script = ExtResource("1_ji26v")
+WeaponName = "Assault Rifle"
+AltFireName = "Underbarrel Shotgun"
+ActivateAnimation = "AR Activate"
+DeactivateAnimation = "AR Deactivate"
+ShootAnimation = "AR Shoot"
+StartingShootAnimation = "AR Shoot"
+ReloadAnimation = "AR Reload"
+OutOfAmmoAnimation = "AR OutOfAmmo"
+AltFireAnimation = "AR Altfire"
+CurrentAmmo = 12
+ReserveAmmo = 60
+StartingAmmo = 12
+StartingReserveAmmo = 60
+CurrentAltFireAmmo = 4
+MaxAltFireAmmo = 12
+StartingAltFireAmmo = 4
+MagazineSize = 12
+MaxAmmoAmount = 120
+AmmoRefillAmount = 6
+AltRefillAmount = 1
+Autofire = true
+Type = 1
+WeaponRange = 1000
+Damage = 3
+AltFireDamage = 5
+KnockbackStrength = 20.0

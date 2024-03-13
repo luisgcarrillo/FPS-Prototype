@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WeaponsResource" load_steps=2 format=3 uid="uid://brqk2287b3x7u"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponsResource.gd" id="1_eg10i"]
+
+[resource]
+script = ExtResource("1_eg10i")
+WeaponName = "Pistols"
+AltFireName = "Slow Time"
+ActivateAnimation = "Pistol Activate"
+DeactivateAnimation = "Pistol Deactivate"
+ShootAnimation = "Pistol ShootRight"
+StartingShootAnimation = "Pistol ShootRight"
+ReloadAnimation = "Pistol Reload"
+OutOfAmmoAnimation = "Pistol OutOfAmmo"
+AltFireAnimation = ""
+CurrentAmmo = 16
+ReserveAmmo = 160
+StartingAmmo = 16
+StartingReserveAmmo = 64
+CurrentAltFireAmmo = 10
+MaxAltFireAmmo = 10
+StartingAltFireAmmo = 10
+MagazineSize = 16
+MaxAmmoAmount = 320
+AmmoRefillAmount = 8
+AltRefillAmount = 1
+Autofire = false
+Type = 1
+WeaponRange = 1000
+Damage = 2
+AltFireDamage = 0
+KnockbackStrength = 15.0

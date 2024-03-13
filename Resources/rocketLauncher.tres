@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WeaponsResource" load_steps=2 format=3 uid="uid://07xhg2nvvch1"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponsResource.gd" id="1_517rl"]
+
+[resource]
+script = ExtResource("1_517rl")
+WeaponName = "Rocket Launcher"
+AltFireName = "Melee Mode"
+ActivateAnimation = "Rocketlauncher Activate"
+DeactivateAnimation = "Rocketlauncher Deactivate"
+ShootAnimation = "Rocketlauncher Shoot"
+StartingShootAnimation = "Rocketlauncher Shoot"
+ReloadAnimation = "Rocketlauncher reload"
+OutOfAmmoAnimation = "Rocketlauncher OutOfAmmo"
+AltFireAnimation = "RocketLauncher AltfireActivate"
+CurrentAmmo = 3
+ReserveAmmo = 12
+StartingAmmo = 3
+StartingReserveAmmo = 12
+CurrentAltFireAmmo = 1
+MaxAltFireAmmo = 1
+StartingAltFireAmmo = 6
+MagazineSize = 3
+MaxAmmoAmount = 12
+AmmoRefillAmount = 1
+AltRefillAmount = 0
+Autofire = false
+Type = 2
+WeaponRange = 1000
+Damage = 10
+AltFireDamage = 10
+KnockbackStrength = 100.0
