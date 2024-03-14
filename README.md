@@ -1,1 +1,1 @@
-Download the latest version here: https://lgcgames.itch.io/fps-prototype
+Download and play the latest version here: https://lgcgames.itch.io/fps-prototype
