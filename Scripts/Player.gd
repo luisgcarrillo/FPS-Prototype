@@ -1,13 +1,15 @@
 extends CharacterBody3D
 @onready var player = $"."
 
-var bullet = load("res://Scenes/bullet.tscn")
+#var bullet = load("res://Scenes/bullet.tscn")
 
 @export var health = 5
 
 
 @export_range(5, 10, 0.1) var crouchAnimSpeed : float = 7.0
 @export var MOUSE_SENSITIVITY  = 0.5
+var ORIGINAL_SENSITIVITY: float
+@export var ADS_SLOWDOWN = .5
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 @export var CAMERA_CONTROLLER : Node3D
@@ -51,9 +53,7 @@ var _camera_rotation : Vector3
 @onready var current_ammo_count = $CanvasLayer/VBoxContainer/HBoxContainer2/CurrentAmmoCount
 @onready var weapon_inventory = $CanvasLayer/VBoxContainer/HBoxContainer3/WeaponInventory
 @onready var hit_ray = $CameraController/Camera3D/HitRay
-@onready var melee_check = $CameraController/Camera3D/WeaponsManager/FPSRig/MeleeCheck
-@onready var melee_hit = $MeleeHit
-@onready var melee_stop = $MeleeStop
+
 
 var slowGravity: float
 var originalFallGravity: float
@@ -90,12 +90,17 @@ func _update_camera(delta):
 	_tilt_input = 0.0
 
 func _ready():
+	ORIGINAL_SENSITIVITY = MOUSE_SENSITIVITY
+	
 	#calculate movement variables and gravity needed for slowmo
 	calculateMovement()
 	originalFallGravity = fallGravity
 	slowGravity = fallGravity * .1
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	Signals.connect("AimDownSights", ADSSensitivity)
+	Signals.connect("StopAimDownSights", originalSensitivity)
 
 func _process(delta):
 	#no input allowed if dead, not fully implemented yet
@@ -202,8 +207,11 @@ func _on_wallrun_timer_timeout():
 	#acceleration = 800
 
 
-func _on_melee_check_body_entered(body, CurrentWeapon):
-	if body.has_method("getHit"):
-		body.getHit(CurrentWeapon.AltFireDamage, 3000)
-	else:
-		pass
+func ADSSensitivity():
+	MOUSE_SENSITIVITY = MOUSE_SENSITIVITY * ADS_SLOWDOWN
+
+func originalSensitivity():
+	MOUSE_SENSITIVITY = ORIGINAL_SENSITIVITY
+
+
+

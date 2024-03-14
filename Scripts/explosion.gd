@@ -17,6 +17,7 @@ func _ready():
 	fire.emitting = true
 	smoke.emitting = true
 	timer.start()
+	SoundPlayer.play_sound(SoundPlayer.explosion)
 
 func dealDamage(value):
 	var enemies = get_overlapping_bodies()
@@ -30,18 +31,12 @@ func dealDamage(value):
 func _process(delta):
 	pass
 
-
-
-
-
 func _on_body_entered(body):
 	if body.is_in_group("Enemy"):
 		dealDamage(50)
 
-
 func _on_splash_damage_body_entered(body):
 	pass # Replace with function body.
-
 
 func _on_timer_timeout():
 	queue_free()

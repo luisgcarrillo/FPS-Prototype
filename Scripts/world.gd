@@ -9,4 +9,6 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
+func _on_out_of_bounds_body_entered(body):
+	get_tree().reload_current_scene()
 

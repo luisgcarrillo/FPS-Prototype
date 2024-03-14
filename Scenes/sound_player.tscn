@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://clsch1sfmnyqw"]
+
+[ext_resource type="Script" path="res://Scripts/SoundPlayer.gd" id="1_yh6jn"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_yh6jn")
+
+[node name="AudioPlayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D9" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D10" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D11" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D12" type="AudioStreamPlayer" parent="AudioPlayers"]
+bus = &"SFX"

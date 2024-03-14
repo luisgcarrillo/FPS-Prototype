@@ -4,6 +4,8 @@ class_name WeaponsResource
 
 @export var WeaponName: String
 @export var AltFireName: String
+@export var AltFireHasAmmo: bool
+@export var AltFireAmmoType: String
 
 @export_category("Animation")
 @export var ActivateAnimation: String
@@ -13,6 +15,7 @@ class_name WeaponsResource
 @export var ReloadAnimation: String
 @export var OutOfAmmoAnimation: String
 @export var AltFireAnimation: String
+@export var BarrelNode: String
 
 @export_category("Ammo")
 @export var CurrentAmmo : int
@@ -31,6 +34,6 @@ class_name WeaponsResource
 @export var Autofire : bool
 @export_flags("Hitscan", "Projectile") var Type
 @export var WeaponRange: int
-@export var Damage: int
+@export var Damage: float
 @export var AltFireDamage: int
 @export var KnockbackStrength: float

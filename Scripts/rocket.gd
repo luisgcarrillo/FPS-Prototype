@@ -1,5 +1,6 @@
 extends Area3D
 
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 @onready var rocket = $"."
 var explosion = preload("res://Scenes/explosion.tscn")
 @onready var rocket_particles = $RocketParticles

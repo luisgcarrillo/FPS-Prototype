@@ -129,5 +129,8 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.670705, 0)
 shape = SubResource("BoxShape3D_cvrwf")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
 [connection signal="timeout" from="ColorChangeTimer" to="." method="_on_color_change_timer_timeout"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

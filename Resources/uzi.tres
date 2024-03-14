@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WeaponsResource" load_steps=2 format=3 uid="uid://db3gh3do524cd"]
+
+[ext_resource type="Script" path="res://Scripts/WeaponsResource.gd" id="1_w28ha"]
+
+[resource]
+script = ExtResource("1_w28ha")
+WeaponName = "Uzi"
+AltFireName = "Aim Down Sights"
+AltFireHasAmmo = false
+ActivateAnimation = "Uzi Activate"
+DeactivateAnimation = "Uzi Deactivate"
+ShootAnimation = "Uzi Shoot"
+StartingShootAnimation = "Uzi Shoot"
+ReloadAnimation = "Uzi Reload"
+OutOfAmmoAnimation = "Uzi OutOfAmmo"
+AltFireAnimation = "Uzi AltFire"
+BarrelNode = ""
+CurrentAmmo = 20
+ReserveAmmo = 120
+StartingAmmo = 20
+StartingReserveAmmo = 120
+CurrentAltFireAmmo = 1
+MaxAltFireAmmo = 1
+StartingAltFireAmmo = 1
+MagazineSize = 20
+MaxAmmoAmount = 260
+AmmoRefillAmount = 10
+AltRefillAmount = 1
+Autofire = true
+Type = 1
+WeaponRange = 1000
+Damage = 1.0
+AltFireDamage = 0
+KnockbackStrength = 10.0

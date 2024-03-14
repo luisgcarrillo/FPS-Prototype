@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://dv8lgly1nkok2" path="res://Assets/mat_flash.tres" id="2_2b1od"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_prdba"]
-radius = 3.0
+radius = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1kgu"]
 transparency = 1

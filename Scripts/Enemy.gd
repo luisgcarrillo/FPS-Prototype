@@ -19,9 +19,11 @@ var direction
 
 @onready var despawn_timer = $DespawnTimer
 @onready var dead_collision = $DeadCollision
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 
-
+const deathSound1 = preload("res://Audio/dsbgdth1.wav")
+const deathSound2 = preload("res://Audio/dsbgdth2.wav")
 
 var knockback = Vector3.ZERO
 @export var knockbackStrength = 0.0
@@ -84,12 +86,18 @@ func die():
 		collision_shape_3d.disabled = true
 		dead_collision.disabled = false
 		despawn_timer.start()
+		
+		var deathSound = (randi() % 2 + 1)
+		if deathSound == 1:
+			play_sound(deathSound1)
+		elif deathSound == 2:
+			play_sound(deathSound2)
+		
 
 
 func _on_color_change_timer_timeout():
 	pass
 	#animated_sprite_3d.set_self_modulate("#ffffff")
-
 
 func setAliveCollision():
 	enemy.set_collision_layer_value(3, true)
@@ -110,5 +118,11 @@ func setDeadCollision():
 	enemy.set_collision_mask_value(5, false)
 	enemy.set_collision_mask_value(6, false)
 	headshot_collision.disabled = true
+	
 func _on_despawn_timer_timeout():
 	queue_free()
+	
+func play_sound(sound):
+		if not audio_stream_player_3d.playing:
+			audio_stream_player_3d.stream = sound
+			audio_stream_player_3d.play()
